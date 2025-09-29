@@ -5,24 +5,31 @@ const InternationalUnity: React.FC = () => {
   const principles = [
     {
       icon: Peace,
-      title: 'Hòa bình và hữu nghị',
-      description: 'Xây dựng quan hệ hòa bình, hữu nghị với tất cả các quốc gia'
+      title: 'Đoàn kết trên cơ sở thống nhất mục tiêu và lợi ích chung',
+      description: 'Các lực lượng cách mạng và tiến bộ trên thế giới phải đoàn kết vì mục tiêu chung là hòa bình, độc lập dân tộc, dân chủ và tiến bộ xã hội.\nHồ Chí Minh nhấn mạnh: “Có lý, có tình”, đoàn kết nhưng không đồng nhất tuyệt đối, phải tôn trọng sự khác biệt.'
+    
     },
     {
       icon: Handshake,
-      title: 'Tương trợ lẫn nhau',
-      description: 'Hỗ trợ các dân tộc trong cuộc đấu tranh giải phóng'
+      title: 'Đoàn kết trên cơ sở độc lập, tự chủ, tự cường',
+      description: 'Việt Nam đoàn kết với các lực lượng quốc tế nhưng không phụ thuộc, phải giữ vững độc lập dân tộc và quyền tự quyết. Nguyên tắc này vừa đảm bảo lợi ích dân tộc, vừa góp phần vào phong trào chung.'
     },
     {
       icon: Users,
-      title: 'Bình đẳng các dân tộc',
-      description: 'Tôn trọng độc lập, chủ quyền của mọi quốc gia'
+      title: 'Đoàn kết phải xuất phát từ lợi ích và nhu cầu thực tế của cách mạng mỗi nước',
+      description: 'Không áp đặt, không can thiệp thô bạo vào công việc nội bộ của nhau. Mỗi quốc gia có con đường đi riêng, nhưng cùng hướng đến mục tiêu vì con người.'
     },
     {
       icon: Heart,
-      title: 'Tình đoàn kết quốc tế',
-      description: 'Phát huy tinh thần tương thân tương ái giữa các dân tộc'
+      title: 'Đoàn kết trên tinh thần nhân văn, thủy chung, trong sáng',
+      description: 'Hồ Chí Minh luôn nhấn mạnh yếu tố “thủy chung trước sau như một”, giữ gìn tình đoàn kết thật sự, chống lợi dụng. Tôn trọng, thương yêu, giúp đỡ lẫn nhau trên tinh thần “giúp bạn là tự giúp mình”.'
+    },
+        {
+      icon: Star,
+      title: 'Kết hợp đoàn kết quốc tế với đại đoàn kết dân tộc',
+      description: 'Muốn đoàn kết quốc tế thành công, trước hết phải có khối đại đoàn kết toàn dân tộc vững chắc. Đây là nền tảng để Việt Nam thực hiện tốt nghĩa vụ quốc tế.'
     }
+
   ];
 
   const relationships = [
@@ -100,8 +107,7 @@ const InternationalUnity: React.FC = () => {
                   để xây dựng một thế giới hòa bình, công bằng.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Đây không chỉ là chiến lược ngoại giao mà còn là nguyên tắc đạo đức, 
-                  thể hiện tinh thần tương thân tương ái, tương trợ lẫn nhau giữa các dân tộc.
+                  Đoàn kết quốc tế không chỉ là chiến lược ngoại giao mà còn là nguyên tắc đạo đức, thể hiện tinh thần tương thân tương ái, hỗ trợ lẫn nhau. Hồ Chí Minh luôn gắn lợi ích dân tộc với lợi ích của phong trào cách mạng thế giới, kết hợp sức mạnh dân tộc với sức mạnh thời đại để tạo ra mặt trận nhân dân tiến bộ toàn cầu. Triết lý này vừa giúp cách mạng Việt Nam giành thắng lợi, vừa đóng góp vào hòa bình, độc lập và tiến bộ xã hội trên thế giới..
                 </p>
               </div>
             </div>
@@ -119,13 +125,15 @@ const InternationalUnity: React.FC = () => {
             {principles.map((principle, index) => {
               const Icon = principle.icon;
               return (
-                <div key={index} className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                  <div className="w-14 h-14 bg-gradient-to-r from-blue-600 to-green-600 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">{principle.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{principle.description}</p>
-                </div>
+               <div key={index} className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+  <div className="flex justify-center mb-4">
+    <div className="w-14 h-14 bg-gradient-to-r from-blue-600 to-green-600 rounded-lg flex items-center justify-center">
+      <Icon className="w-7 h-7 text-white" />
+    </div>
+  </div>
+  <h3 className="text-lg font-bold text-gray-800 mb-3">{principle.title}</h3>
+  <p className="text-gray-600 text-sm leading-relaxed">{principle.description}</p>
+</div>
               );
             })}
           </div>
