@@ -4,6 +4,8 @@ import HomePage from './components/HomePage';
 import NationalUnity from './components/NationalUnity';
 import InternationalUnity from './components/InternationalUnity';
 import Documents from './components/Documents';
+import Timeline from './components/Timeline';
+import MediaLibrary from './components/MediaLibrary';
 import Chatbot from './components/Chatbot';
 
 function App() {
@@ -20,19 +22,9 @@ function App() {
       case 'documents':
         return <Documents />;
       case 'timeline':
-        return <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Timeline lịch sử</h2>
-            <p className="text-gray-600">Tính năng đang được phát triển...</p>
-          </div>
-        </div>;
+        return <Timeline />;
       case 'media':
-        return <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Thư viện đa phương tiện</h2>
-            <p className="text-gray-600">Tính năng đang được phát triển...</p>
-          </div>
-        </div>;
+        return <MediaLibrary />;
       case 'research':
         return <div className="min-h-screen bg-gray-100 flex items-center justify-center">
           <div className="text-center">
