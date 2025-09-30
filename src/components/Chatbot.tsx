@@ -158,12 +158,13 @@ Yêu cầu:
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = inputText;
     setInputText('');
     setIsTyping(true);
 
     try {
       // Get response from Gemini AI
-      const botResponseText = await getGeminiResponse(inputText);
+      const botResponseText = await getGeminiResponse(currentInput);
       
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
@@ -203,6 +204,15 @@ Yêu cầu:
 
   const handleQuickQuestion = (question: string) => {
     setInputText(question);
+    // Automatically send the question
+    setTimeout(() => {
+      const syntheticEvent = {
+        key: 'Enter',
+        shiftKey: false,
+        preventDefault: () => {}
+      } as React.KeyboardEvent;
+      handleKeyPress(syntheticEvent);
+    }, 100);
   };
 
   return (
