@@ -195,26 +195,6 @@ Yêu cầu:
     }
   };
 
-  const quickQuestions = [
-    "Đại đoàn kết dân tộc là gì?",
-    "Nguyên tắc đoàn kết quốc tế",
-    "Ý nghĩa lịch sử của tư tưởng này",
-    "Ứng dụng trong thời đại hiện đại"
-  ];
-
-  const handleQuickQuestion = (question: string) => {
-    setInputText(question);
-    // Automatically send the question
-    setTimeout(() => {
-      const syntheticEvent = {
-        key: 'Enter',
-        shiftKey: false,
-        preventDefault: () => {}
-      } as React.KeyboardEvent;
-      handleKeyPress(syntheticEvent);
-    }, 100);
-  };
-
   return (
     <>
       {/* Chat Button */}
@@ -253,26 +233,8 @@ Yêu cầu:
           </button>
         </div>
 
-        {/* Quick Questions */}
-        {messages.length === 1 && (
-          <div className="p-4 bg-gray-50 border-b">
-            <p className="text-sm text-gray-600 mb-2">Câu hỏi gợi ý:</p>
-            <div className="space-y-2">
-              {quickQuestions.map((question, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleQuickQuestion(question)}
-                  className="w-full text-left text-xs bg-white border border-gray-200 rounded-lg p-2 hover:bg-red-50 hover:border-red-200 transition-colors duration-200"
-                >
-                  {question}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* Messages */}
-        <div className="flex-1 p-4 h-80 overflow-y-auto bg-gray-50">
+        <div className="flex-1 p-4 h-96 overflow-y-auto bg-gray-50">
           {messages.map((message) => (
             <div
               key={message.id}
