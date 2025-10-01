@@ -36,10 +36,32 @@ const Chatbot: React.FC = () => {
         return 'Xin lỗi, tôi cần được cấu hình API key để hoạt động. Vui lòng liên hệ quản trị viên.';
       }
 
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (!apiKey) {
+        return 'Xin lỗi, tôi cần được cấu hình API key để hoạt động. Vui lòng liên hệ quản trị viên.';
+      }
+
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
 
-      const result = await model.generateContent(question);
+      const prompt = `
+Bạn là một trợ lý AI chuyên về tư tưởng Hồ Chí Minh, đặc biệt là về đại đoàn kết toàn dân tộc và đoàn kết quốc tế.
+
+QUAN TRỌNG: Chỉ trả lời những câu hỏi liên quan đến:
+- Tư tưởng Hồ Chí Minh
+- Đại đoàn kết toàn dân tộc
+- Đoàn kết quốc tế
+- Lịch sử Việt Nam liên quan đến Hồ Chí Minh
+- Các chính sách dân tộc, tôn giáo của Hồ Chí Minh
+- Di sản tinh thần của Chủ tịch Hồ Chí Minh
+
+Nếu câu hỏi không liên quan đến những chủ đề trên, hãy trả lời: "Xin lỗi, tôi chỉ có thể trả lời những câu hỏi liên quan đến tư tưởng Hồ Chí Minh về đại đoàn kết dân tộc và đoàn kết quốc tế. Bạn có thể hỏi tôi về những chủ đề này không?"
+
+Câu hỏi: ${question}
+
+Trả lời bằng tiếng Việt, ngắn gọn và dễ hiểu:`;
+
+      const result = await model.generateContent(prompt);
       const response = await result.response;
       return response.text();
     } catch (error) {
