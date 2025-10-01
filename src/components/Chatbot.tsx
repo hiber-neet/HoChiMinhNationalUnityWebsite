@@ -36,11 +36,6 @@ const Chatbot: React.FC = () => {
         return 'Xin lỗi, tôi cần được cấu hình API key để hoạt động. Vui lòng liên hệ quản trị viên.';
       }
 
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-      if (!apiKey) {
-        return 'Xin lỗi, tôi cần được cấu hình API key để hoạt động. Vui lòng liên hệ quản trị viên.';
-      }
-
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
 
