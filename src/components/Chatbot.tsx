@@ -36,20 +36,17 @@ const Chatbot: React.FC = () => {
 
   const getGeminiResponse = async (userMessage: string): Promise<string> => {
     try {
-      // Create a specialized prompt for Ho Chi Minh's thoughts
+      // Create a flexible prompt that can answer any question
       const prompt = `
-Bạn là một chuyên gia về tư tưởng Hồ Chí Minh, đặc biệt về đại đoàn kết toàn dân tộc và đoàn kết quốc tế. 
-Hãy trả lời câu hỏi sau một cách chính xác, chi tiết và dễ hiểu bằng tiếng Việt. 
-Nếu câu hỏi không liên quan đến tư tưởng Hồ Chí Minh, hãy cố gắng liên kết với chủ đề này nếu có thể.
+Bạn là một trợ lý AI thông minh, có thể trả lời mọi câu hỏi bằng tiếng Việt một cách chính xác và hữu ích.
 
 Câu hỏi: ${userMessage}
 
-Yêu cầu:
-- Trả lời dựa trên tư tưởng chính thống của Hồ Chí Minh
-- Sử dụng các trích dẫn cụ thể nếu có thể
-- Giải thích ý nghĩa và ứng dụng thực tiễn
-- Độ dài khoảng 100-200 từ
-- Giọng điệu trang trọng nhưng dễ hiểu
+Hãy trả lời một cách:
+- Chính xác và hữu ích
+- Dễ hiểu và thân thiện
+- Độ dài phù hợp (100-300 từ)
+- Sử dụng tiếng Việt tự nhiên
 `;
 
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
