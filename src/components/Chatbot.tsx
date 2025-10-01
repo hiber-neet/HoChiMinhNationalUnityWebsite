@@ -36,16 +36,11 @@ const Chatbot: React.FC = () => {
 
   const getGeminiResponse = async (userMessage: string): Promise<string> => {
     try {
-      // Check if the question is related to Ho Chi Minh's thoughts
-      if (!isRelatedToHoChiMinh(userMessage)) {
-        return "Xin lỗi, tôi chỉ có thể trả lời những câu hỏi liên quan đến tư tưởng Hồ Chí Minh về đại đoàn kết toàn dân tộc và đoàn kết quốc tế. Bạn có thể hỏi tôi về các chủ đề như: đại đoàn kết dân tộc, đoàn kết quốc tế, nguyên tắc đoàn kết, lịch sử cách mạng, hoặc ứng dụng tư tưởng trong thời đại hiện đại.";
-      }
-
       // Create a specialized prompt for Ho Chi Minh's thoughts
       const prompt = `
 Bạn là một chuyên gia về tư tưởng Hồ Chí Minh, đặc biệt về đại đoàn kết toàn dân tộc và đoàn kết quốc tế. 
 Hãy trả lời câu hỏi sau một cách chính xác, chi tiết và dễ hiểu bằng tiếng Việt. 
-CHỈ trả lời những câu hỏi liên quan đến tư tưởng Hồ Chí Minh.
+Nếu câu hỏi không liên quan đến tư tưởng Hồ Chí Minh, hãy cố gắng liên kết với chủ đề này nếu có thể.
 
 Câu hỏi: ${userMessage}
 
@@ -67,59 +62,7 @@ Yêu cầu:
     }
   };
 
-  const isRelatedToHoChiMinh = (message: string): boolean => {
-    const lowerMessage = message.toLowerCase();
-    
-    // Keywords related to Ho Chi Minh's thoughts
-    const relatedKeywords = [
-      'hồ chí minh', 'bác hồ', 'chủ tịch hồ chí minh', 'người',
-      'đại đoàn kết', 'đoàn kết', 'dân tộc', 'toàn dân tộc',
-      'đoàn kết quốc tế', 'quốc tế', 'hòa bình', 'độc lập',
-      'tự do', 'cách mạng', 'kháng chiến', 'giải phóng',
-      'mặt trận', 'việt minh', 'tổ quốc', 'nhân dân',
-      'chính sách dân tộc', 'tôn giáo', 'bình đẳng',
-      'thống nhất', 'liên minh', 'hợp tác', 'tương trợ',
-      'nguyên tắc', 'lý luận', 'tư tưởng', 'triết lý',
-      'di chúc', 'lời dạy', 'quan điểm', 'chủ nghĩa',
-      'xã hội chủ nghĩa', 'cộng sản', 'marx', 'lenin',
-      'asean', 'liên xô', 'trung quốc', 'pháp', 'mỹ',
-      'kháng chiến chống pháp', 'kháng chiến chống mỹ',
-      'tổng khởi nghĩa', 'cách mạng tháng tám',
-      'tuyên ngôn độc lập', 'việt nam dân chủ cộng hòa'
-    ];
-    
-    // Check if message contains any related keywords
-    const hasRelatedKeywords = relatedKeywords.some(keyword => 
-      lowerMessage.includes(keyword)
-    );
-    
-    // Additional check for question patterns about Ho Chi Minh's thoughts
-    const questionPatterns = [
-      /tại sao.*đoàn kết/,
-      /ý nghĩa.*đại đoàn kết/,
-      /nguyên tắc.*hồ chí minh/,
-      /tư tưởng.*bác/,
-      /quan điểm.*người/,
-      /lịch sử.*việt nam/,
-      /cách mạng.*dân tộc/,
-      /chính sách.*dân tộc/,
-      /hợp tác.*quốc tế/,
-      /ngoại giao.*việt nam/
-    ];
-    
-    const matchesPattern = questionPatterns.some(pattern => 
-      pattern.test(lowerMessage)
-    );
-    
-    return hasRelatedKeywords || matchesPattern;
-  };
-
   const getFallbackResponse = (userMessage: string): string => {
-    // Check if the question is related to Ho Chi Minh's thoughts
-    if (!isRelatedToHoChiMinh(userMessage)) {
-      return "Xin lỗi, tôi chỉ có thể trả lời những câu hỏi liên quan đến tư tưởng Hồ Chí Minh về đại đoàn kết toàn dân tộc và đoàn kết quốc tế. Bạn có thể hỏi tôi về các chủ đề như: đại đoàn kết dân tộc, đoàn kết quốc tế, nguyên tắc đoàn kết, lịch sử cách mạng, hoặc ứng dụng tư tưởng trong thời đại hiện đại.";
-    }
-
     const lowerMessage = userMessage.toLowerCase();
 
     const fallbackResponses = {
