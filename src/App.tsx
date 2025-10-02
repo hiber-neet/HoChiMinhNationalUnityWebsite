@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import NationalUnity from './components/NationalUnity';
 import InternationalUnity from './components/InternationalUnity';
 import Documents from './components/Documents';
+import UnityStories from './components/UnityStories';
 import Chatbot from './components/Chatbot';
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         return <InternationalUnity />;
       case 'documents':
         return <Documents />;
+      case 'unity-stories':
+        return <UnityStories />;
       case 'research':
         return <div className="min-h-screen bg-gray-100 flex items-center justify-center">
           <div className="text-center">
