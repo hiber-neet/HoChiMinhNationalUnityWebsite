@@ -4,7 +4,6 @@ import HomePage from './components/HomePage';
 import NationalUnity from './components/NationalUnity';
 import InternationalUnity from './components/InternationalUnity';
 import Documents from './components/Documents';
-import MindMapping from './components/MindMapping';
 import UnityStories from './components/UnityStories';
 import Chatbot from './components/Chatbot';
 
@@ -21,8 +20,6 @@ function App() {
         return <InternationalUnity />;
       case 'documents':
         return <Documents />;
-      case 'mind-mapping':
-        return <MindMapping />;
       case 'unity-stories':
         return <UnityStories />;
       case 'research':
